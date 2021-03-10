@@ -6,7 +6,7 @@ pygame.init()
 
 # Variables
 word = ""
-chances = 6
+chances = 12
 
 # Word arrays
 fiveLetters = ["BLOWN", "CADET", "CANES", "BREAD", "ANGRY", "ADDED", "BURNT", "BRUTE", "AMONG", "AGING"]
@@ -61,7 +61,22 @@ while running:
 
     # Updates the the screen
     underlines()
-    hangMan(hangEmpty)
+    if 12 >= chances > 10:
+        hangMan(hangEmpty)
+    if 10 >= chances > 8:
+        hangMan(hangH)
+    if 8 >= chances > 6:
+        hangMan(hangH_B)
+    if 6 >= chances > 4:
+        hangMan(hangH_B_Ra)
+    if 4 >= chances > 2:
+        hangMan(hangH_B_Ra_La)
+    if 2 >= chances > 0:
+        hangMan(hangH_B_Ra_La_Rl)
+    if chances == 0:
+        hangMan(hangFull)
+        pygame.display.update()
+        time.sleep(1)
 
     # Print any letters entered that are correct
     xPlace = 400
