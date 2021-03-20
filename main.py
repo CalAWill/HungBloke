@@ -127,11 +127,14 @@ while running:
                     char = ""
                     char += str(chr(event.key))
                 if event.key == pygame.K_RETURN:
-                    chances -= 1
                     accept = False
 
     # Check if the character entered matches a letter in the word
+    wrong = True
     for i in range(0, len(word)):
         if char.upper() == word[i]:
             printArray[i] = char.upper()
-        # else:
+            wrong = False
+
+    if wrong:
+        chances -= 1
